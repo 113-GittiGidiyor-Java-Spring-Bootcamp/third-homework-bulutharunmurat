@@ -23,7 +23,6 @@ public class Course {
     private Float creditScore;
 
     @ManyToMany(mappedBy = "courseList", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JsonIgnore
     private Set<Student> studentList;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)

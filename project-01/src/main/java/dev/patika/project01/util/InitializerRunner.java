@@ -4,6 +4,7 @@ package dev.patika.project01.util;
 import dev.patika.project01.entity.*;
 
 import dev.patika.project01.entity.Course;
+import dev.patika.project01.entity.Student;
 import dev.patika.project01.entity.Instructor;
 import dev.patika.project01.service.CourseService;
 import dev.patika.project01.service.InstructorService;
@@ -16,6 +17,10 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 
 @Component
@@ -34,6 +39,7 @@ public class InitializerRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+
 
 
         Student student1 = Student.builder()
@@ -91,10 +97,19 @@ public class InitializerRunner implements CommandLineRunner {
                 .name("ENGLISH")
                 .instructor(visitingResearcher1.build())
                 .build();
-        
+
         courseService.save(course1);
         courseService.save(course2);
         courseService.save(course3);
+
+        Set<Student> studentList = new HashSet<>();
+        studentList.add(student1);
+
+        Set<Course> courses = new HashSet<>();
+        courses.add(course1);
+
+        course1.setStudentList(studentList);
+        student1.setCourseList(courses);
 
         courseService.findAll().forEach(course -> logger.info("{}", course));
     }
