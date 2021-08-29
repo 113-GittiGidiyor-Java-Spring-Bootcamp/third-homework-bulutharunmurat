@@ -16,7 +16,7 @@ public interface InstructorRepository extends CrudRepository<Instructor, Integer
 
     @Query(nativeQuery = true, value = "SELECT HOURLY_SALARY as SALARY FROM VISITING_RESEARCHER " +
             "UNION SELECT FIXED_SALARY as SALARY FROM PERMANENT_INSTRUCTOR " +
-            "ORDER BY SALARY")
+            "ORDER BY SALARY DESC")
     List<Instructor> getThreeMostEarningInstructor();
 
 }

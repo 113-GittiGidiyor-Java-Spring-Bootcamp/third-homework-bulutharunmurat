@@ -61,5 +61,13 @@ public class InstructorService implements BaseService<Instructor>{
     }
 
     public List<Instructor>  getThreeMostEarningInstructor(){
-       return repository.getThreeMostEarningInstructor();}
+
+        List<Instructor> allInstructors = repository.getThreeMostEarningInstructor();
+        List<Instructor> instructorsOfThreeMost = new ArrayList<>();
+
+        for(int i=0; i<3; i++){
+            instructorsOfThreeMost.add(allInstructors.get(i));
+        }
+       return instructorsOfThreeMost;
+    }
 }

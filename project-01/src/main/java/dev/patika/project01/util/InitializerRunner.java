@@ -35,19 +35,23 @@ public class InitializerRunner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        studentService.save(Student.builder()
+
+        Student student1 = Student.builder()
                 .name("Harun Murat")
                 .address("Istanbul")
                 .birthDate(LocalDate.of(2001, Month.AUGUST,18))
                 .gender("male")
-                .build());
+                .build();
 
-        studentService.save(Student.builder()
+        Student student2 = Student.builder()
                 .name("Bulut")
                 .address("Bursa")
                 .birthDate( LocalDate.of(1994, Month.MAY,04))
                 .gender("male")
-                .build());
+                .build();
+
+        studentService.save(student1);
+        studentService.save(student2);
 
 
         PermanentInstructor.PermanentInstructorBuilder<?, ?> permanentInstructor1=
@@ -57,8 +61,6 @@ public class InitializerRunner implements CommandLineRunner {
                         .phoneNumber("00212220")
                         .fixedSalary(50.00F);
 
-        instructorService.save(permanentInstructor1.build());
-
         VisitingResearcher.VisitingResearcherBuilder<?,?> visitingResearcher1=
                 VisitingResearcher.builder()
                         .name("Tacettin")
@@ -66,28 +68,33 @@ public class InitializerRunner implements CommandLineRunner {
                         .phoneNumber("051231")
                         .hourlySalary(40.00F);
 
+        instructorService.save(permanentInstructor1.build());
         instructorService.save(visitingResearcher1.build());
 
-        courseService.save(Course.builder()
+        Course course1 = Course.builder()
                 .code("CAL101")
                 .creditScore(3.50F)
                 .name("CALCULUS")
                 .instructor(visitingResearcher1.
                         build())
-                .build());
+                .build();
 
-        courseService.save(Course.builder()
+        Course course2 = Course.builder()
                 .code("CS101")
                 .creditScore(4.0F)
                 .name("COMPUTER SCIENCE")
-                .build());
+                .build();
 
-        courseService.save(Course.builder()
+        Course course3 = Course.builder()
                 .code("ENG101")
                 .creditScore(2.0F)
                 .name("ENGLISH")
                 .instructor(visitingResearcher1.build())
-                .build());
+                .build();
+        
+        courseService.save(course1);
+        courseService.save(course2);
+        courseService.save(course3);
 
         courseService.findAll().forEach(course -> logger.info("{}", course));
     }
