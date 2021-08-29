@@ -59,4 +59,7 @@ public class InstructorService implements BaseService<Instructor>{
     public void deleteByName(String name){
         repository.deleteByName(name);
     }
+
+    public List<Instructor>  getThreeMostEarningInstructor(){
+       return repository.getThreeMostEarningInstructor();}
 }

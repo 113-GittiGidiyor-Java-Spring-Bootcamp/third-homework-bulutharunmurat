@@ -11,8 +11,6 @@ import java.util.Objects;
 @Data //-> @RequiredArgsConstructor, @Getter, @Setter, @EqualsAndHashCode, @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
-@ToString
 @Entity //Spring DATA JPA
 @SuperBuilder
 public class VisitingResearcher extends Instructor {

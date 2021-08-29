@@ -70,4 +70,9 @@ public class InstructorController {
         instructorService.deleteByName(name);
         return "instructor with name " + name + " is deleted";
     }
+
+    @GetMapping("/instructors/getThreeMostEarningInstructor")
+    public List<Instructor> getThreeMostEarningInstructor(){
+        return instructorService.getThreeMostEarningInstructor();
+    }
 }

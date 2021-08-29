@@ -30,13 +30,13 @@ public class CurrencyController {
 
 
     @SneakyThrows
-    @GetMapping("/getstr/{id}")
-    public String getJsonFromRemoteWebsiteString (@PathVariable int id) throws JSONException {
+    @GetMapping("/currency/{id}")
+    public String getJsonFromRemoteWebsiteString (@PathVariable float id) throws JSONException {
         ResponseEntity<String>  str = restTemplate.getForEntity(ENDPOINT, String.class);
         JSONObject obj = new JSONObject(str.getBody().toString());
         JSONObject rates = obj.getJSONObject("rates");
 
-        float rate = (float) rates.getInt("TRY");
+        float rate = (float) rates.getDouble("TRY");
         float converted = rate * id;
         return id + " TRY is equal to " + converted + " EURO";
     }

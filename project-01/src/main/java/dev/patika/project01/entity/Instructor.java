@@ -13,8 +13,6 @@ import java.util.List;
 @Data //-> @RequiredArgsConstructor, @Getter, @Setter, @EqualsAndHashCode, @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
-@ToString
 @Entity //Spring DATA JPA
 @SuperBuilder
 @Inheritance(strategy = InheritanceType.JOINED)

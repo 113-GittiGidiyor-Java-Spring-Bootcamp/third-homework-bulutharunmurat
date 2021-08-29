@@ -14,7 +14,7 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Currency extends CurrencyBaseRequest {
-
+    //This class is used in case of currency object returned from controller
     @Id
     private int id;
 

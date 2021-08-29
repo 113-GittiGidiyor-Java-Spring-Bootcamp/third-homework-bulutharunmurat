@@ -15,8 +15,6 @@ import java.util.Set;
 @Data //-> @RequiredArgsConstructor, @Getter, @Setter, @EqualsAndHashCode, @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
-@ToString
 @Entity //Spring DATA JPA
 @Builder
 public class Student {
